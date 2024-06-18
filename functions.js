@@ -7,11 +7,13 @@ const statements = [
 const statementsContainer = document.getElementById("statements-container");
 
 function generateStatementRow(statementText, index) {
+  const table = document.createElement("table"); // Create a new table
+
   const statementRow = document.createElement("tr");
   statementRow.classList.add("statement-row");
 
   const statementCell = document.createElement("td");
-  statementCell.colSpan = 7;
+  statementCell.colSpan = 6;
   statementCell.classList.add("statement");
 
   const statementTextElement = document.createElement("span");
@@ -37,12 +39,15 @@ function generateStatementRow(statementText, index) {
 
     const radioInput = document.createElement("input");
     radioInput.type = "radio";
-    radioInput.name = `section${index + 1}_row${i + 1}`; // Update name format
+    radioInput.name = `section${index + 1}`;  // Fix name attribute (unique for each statement)
     radioInput.value = i;
 
     const radioLabel = document.createElement("label");
-    radioLabel.for = `section${index + 1}_row${i + 1}`;
+    radioLabel.for = `${radioInput.id}`;  // Label "for" attribute references radio ID
     radioLabel.innerText = i;
+
+    // Assign unique ID to each radio button
+    radioInput.id = `section${index + 1}_row${i + 1}`;
 
     radioCell.appendChild(radioInput);
     radioCell.appendChild(radioLabel);
@@ -53,13 +58,17 @@ function generateStatementRow(statementText, index) {
   closingRow.classList.add("closing");
 
   statementRow.appendChild(buttonsRow);
-  statementRow.appendChild(closingRow);
+  closingRow.appendChild(closingRow);
 
-  return statementRow;
+  table.appendChild(statementRow);
+  table.appendChild(buttonsRow);
+  table.appendChild(closingRow);
+
+  return table;  // Return the entire table element
 }
 
 // Generate statement rows and append them to the container
 statements.forEach((statement, index) => {
-  const statementRow = generateStatementRow(statement, index);
-  statementsContainer.appendChild(statementRow);
+  const table = generateStatementRow(statement, index);
+  statementsContainer.appendChild(table);
 });

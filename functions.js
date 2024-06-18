@@ -13,7 +13,7 @@ function generateStatementRow(statementText, index) {
   statementRow.classList.add("statement-row");
 
   const statementCell = document.createElement("td");
-  statementCell.colSpan = 6;
+  statementCell.colSpan = 7;
   statementCell.classList.add("statement");
 
   const statementTextElement = document.createElement("span");
@@ -60,6 +60,7 @@ function generateStatementRow(statementText, index) {
   statementRow.appendChild(buttonsRow);
   closingRow.appendChild(closingRow);
 
+  // Append rows to the table (only append once)
   table.appendChild(statementRow);
   table.appendChild(buttonsRow);
   table.appendChild(closingRow);

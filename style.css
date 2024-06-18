@@ -1,5 +1,6 @@
   h1 {
     text-align: center;
+    font-size: 60px;
   }
 
   table {
@@ -13,8 +14,9 @@
   }
 
   .statement {
-    padding: 15px 0 5px;
+    padding: 15px 0;
     text-align: center;
+    font-size: 50px;
     font-weight: bold;
     border-top: 1px solid black;
   }
@@ -34,8 +36,8 @@
   }
 
   td input[type="radio"] {
-    width: 20px;
-    height: 20px;
+    width: 80px;
+    height: 80px;
   }
 
   label {
@@ -59,11 +61,14 @@
 
   /* Info button styles */
   .info-button {
-    background-color: transparent;
-    border: 1px solid black;
+    background-color: #edf;
+    border: 1px solid #568;
     border-radius: 50px;
-    cursor: pointer; /* Set cursor to pointer on hover */
-    position: absolute; /* Make it positionable within the statement cell */
-    top: 5px; /* Position with some offset from the top */
-    right: 10px; /* Offset from the right edge */
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
   }

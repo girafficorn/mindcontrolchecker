@@ -1,6 +1,6 @@
 const statements = [
-  "statement number one?",
-  "statement number two?",
+  "regulate my physical reality?",
+  "know my deepest thoughts and feelings?",
   // Add more statements here
 ];
 
@@ -23,19 +23,21 @@ function generateStatementRow(statementText, index) {
   infoButton.classList.add("info-button");
   infoButton.innerText = "?";
 
+  // Append statement text and button to statement cell
   statementCell.appendChild(statementTextElement);
   statementCell.appendChild(infoButton);
+
   statementRow.appendChild(statementCell);
 
-  // Generate radio buttons and labels (assuming 5 options)
+  // Generate radio buttons and labels (fixed scale 0-5)
   const buttonsRow = document.createElement("tr");
   buttonsRow.classList.add("buttons");
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) { // Loop for 6 options (0-5)
     const radioCell = document.createElement("td");
 
     const radioInput = document.createElement("input");
     radioInput.type = "radio";
-    radioInput.name = `section${index + 1}_row${i + 1}`;
+    radioInput.name = `section${index + 1}_row${i + 1}`; // Update name format
     radioInput.value = i;
 
     const radioLabel = document.createElement("label");
@@ -60,32 +62,4 @@ function generateStatementRow(statementText, index) {
 statements.forEach((statement, index) => {
   const statementRow = generateStatementRow(statement, index);
   statementsContainer.appendChild(statementRow);
-});
-
-// Rest of your JavaScript logic for handling button clicks and hidden text (can be moved here)
-
-
-const infoButtons = document.querySelectorAll(".info-button");
-const statementTexts = document.querySelectorAll(".statement-text");
-
-// Function to hide all statement texts
-function hideAllStatementTexts() {
-  statementTexts.forEach(text => text.style.display = "none");
-}
-
-// Toggle statement text on button click
-infoButtons.forEach(button => {
-  button.addEventListener("click", function() {
-    const statementText = this.parentNode.querySelector(".statement-text");
-    // Hide all other statement texts before toggling the clicked one
-    hideAllStatementTexts();
-    statementText.style.display = statementText.style.display === "none" ? "block" : "none";
-  });
-});
-
-// Hide statement texts on document click (excluding info buttons)
-document.addEventListener("click", function(event) {
-  if (!event.target.classList.contains("info-button")) {
-    hideAllStatementTexts();
-  }
 });

@@ -41,7 +41,7 @@ table {
   }
 
   /* Hidden text styles */
-  .statement-text {
+  .hidden-text {
     display: none;
     position: absolute; /* Make it positionable within the statement cell */
     top: 5px; /* Position at the top */

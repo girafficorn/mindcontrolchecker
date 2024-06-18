@@ -14,17 +14,29 @@ function generateStatementRow(statementText, index) {
   statementCell.colSpan = 6;
   statementCell.classList.add("statement");
 
-  const statementTextElement = document.createElement("span");
-  statementTextElement.classList.add("statement-text");
-  statementTextElement.innerText = statementText;
+  // Display statement text
+  const statementSpan = document.createElement("span");
+  statementSpan.innerText = statementText;
+  statementCell.appendChild(statementSpan);
+
+  // Hidden text (initially hidden)
+  const hiddenText = document.createElement("p");
+  hiddenText.classList.add("hidden-text");
+  hiddenText.innerText = "This is some additional information about the statement."; // Replace with your hidden text content
+  hiddenText.style.display = "none"; // Initially hide the hidden text
+
+  statementCell.appendChild(hiddenText);
 
   const infoButton = document.createElement("button");
   infoButton.type = "button";
   infoButton.classList.add("info-button");
   infoButton.innerText = "?";
 
-  // Append statement text and button to statement cell
-  statementCell.appendChild(statementTextElement);
+  // Toggle hidden text visibility on button click
+  infoButton.addEventListener("click", () => {
+    hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
+  });
+
   statementCell.appendChild(infoButton);
 
   statementRow.appendChild(statementCell);
@@ -55,13 +67,9 @@ function generateStatementRow(statementText, index) {
   const closingRow = document.createElement("tr");
   closingRow.classList.add("closing");
 
-  // **Append buttons row only**
   statementRow.appendChild(buttonsRow);
+  statementRow.appendChild(closingRow);
 
-  // **Move closing row append outside the function**
-  // statementsContainer.appendChild(closingRow);  // Removed from here
-
-  // Return the row element (optional)
   return statementRow;
 }
 
@@ -69,5 +77,4 @@ function generateStatementRow(statementText, index) {
 statements.forEach((statement, index) => {
   const statementRow = generateStatementRow(statement, index);
   statementsContainer.appendChild(statementRow);
-  // statementsContainer.appendChild(closingRow);  // Removed from here (already appended in generateStatementRow)
 });

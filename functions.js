@@ -10,7 +10,7 @@ function hideAllHiddenTexts() {
 infoButtons.forEach(button => {
   button.addEventListener("click", function() {
     const hiddenText = this.parentNode.querySelector(".hidden-text");
-    // Hide all other statement texts before toggling the clicked one
+    // Hide all other hidden texts before toggling the clicked one
     hideAllHiddenTexts();
     hiddenText.style.display = hiddenText.style.display === "none" ? "block" : "none";
   });

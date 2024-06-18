@@ -1,0 +1,65 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .statement-row {
+    position: relative; /* Enable child element positioning */
+  }
+
+  .statement {
+    padding: 15px 0 5px;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid black;
+  }
+
+  .closing {
+    padding: 0px;
+    border-bottom: 1px solid black;
+  }
+
+  .buttons {
+    width: 50%;
+  }
+
+  td {
+    padding: 0px;
+    text-align: center;
+  }
+
+  td input[type="radio"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  label {
+    font-size: 0.8em;
+    display: block;
+    padding: 5px 0 15px;
+  }
+
+  /* Hidden text styles */
+  .statement-text {
+    display: none;
+    position: absolute; /* Make it positionable within the statement cell */
+    top: 5px; /* Position at the top */
+    right: 35px; /* Offset from the right edge */
+    background-color: #f2f2f2;
+    padding: 5px;
+    border: 1px solid #ddd;
+    max-width: 80%; /* Allow text to wrap */
+    z-index: 10;
+  }
+
+  /* Info button styles */
+  .info-button {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 50px;
+    cursor: pointer; /* Set cursor to pointer on hover */
+    position: absolute; /* Make it positionable within the statement cell */
+    top: 5px; /* Position with some offset from the top */
+    right: 10px; /* Offset from the right edge */
+  }

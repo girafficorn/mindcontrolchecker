@@ -1,7 +1,6 @@
 const statements = [
   "regulate my physical reality?",
   "know my deepest thoughts and feelings?",
-  "other weird things?",
   // Add more statements here
 ];
 
@@ -12,7 +11,7 @@ function generateStatementRow(statementText, index) {
   statementRow.classList.add("statement-row");
 
   const statementCell = document.createElement("td");
-  statementCell.colSpan = 7;
+  statementCell.colSpan = 6;
   statementCell.classList.add("statement");
 
   const statementTextElement = document.createElement("span");
@@ -56,13 +55,19 @@ function generateStatementRow(statementText, index) {
   const closingRow = document.createElement("tr");
   closingRow.classList.add("closing");
 
+  // **Append buttons row only**
   statementRow.appendChild(buttonsRow);
-  statementRow.appendChild(closingRow);
 
-  statementsContainer.appendChild(statementRow);
+  // **Move closing row append outside the function**
+  // statementsContainer.appendChild(closingRow);  // Removed from here
+
+  // Return the row element (optional)
+  return statementRow;
 }
 
 // Generate statement rows and append them to the container
 statements.forEach((statement, index) => {
-  generateStatementRow(statement, index);
+  const statementRow = generateStatementRow(statement, index);
+  statementsContainer.appendChild(statementRow);
+  // statementsContainer.appendChild(closingRow);  // Removed from here (already appended in generateStatementRow)
 });

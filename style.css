@@ -16,7 +16,6 @@
   }
 
   td input[type="radio"] {
-    opacity: 0;
     width: 80px;
     height: 80px;
   }
@@ -46,7 +45,7 @@
 
   label {
     font-size: 2em;
-    display: inline-block;
+    display: block;
     padding: 5px 0 25px;
     pointer-events: none; /* Prevent label clicks */
 
@@ -78,24 +77,3 @@
     height: 50px;
     font-size: 30px;
   }
-
-
-
-
-/* Style custom radio button element */
-input[type="radio"]:after {
-  content: "";
-  display: block;
-  width: 80px; /* Adjust width as needed */
-  height: 80px; /* Adjust height as needed */
-  border-radius: 50%;
-  background-color: #ddd; /* Adjust color as needed */
-  transition: all 0.2s ease;
-}
-
-
-/* Style checked radio button */
-input[type="radio"]:checked:after {
-  background-color: #0095ff; /* Adjust color as needed */
-}
-

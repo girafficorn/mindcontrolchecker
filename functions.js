@@ -1,4 +1,4 @@
-const infoButtons = document.querySelectorAll(".info-button");
+const statementsRaw = document.querySelectorAll(".statement");
 const hiddenTexts = document.querySelectorAll(".hidden-text");
 
 // Function to hide all hidden texts
@@ -7,7 +7,7 @@ function hideAllHiddenTexts() {
 }
 
 // Toggle hidden text on button click
-infoButtons.forEach(button => {
+statementsRaw.forEach(button => {
   button.addEventListener("click", function() {
     const hiddenText = this.parentNode.querySelector(".hidden-text");
     // Hide all other hidden texts before toggling the clicked one

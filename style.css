@@ -54,7 +54,7 @@
   /* Hidden text styles */
   .hidden-text {
     display: none;
-    position: absolute;
+    position: relative;
     top: 15px;
     right: 75px;
     background-color: #f2f2f2;

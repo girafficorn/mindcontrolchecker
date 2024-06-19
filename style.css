@@ -10,7 +10,7 @@
   }
 
   .statement-row {
-    position: relative; /* Enable child element positioning */
+    position: relative;
   }
 
   .statement {
@@ -27,14 +27,15 @@
   }
 
   .buttons {
-    width: 400px; /* Define your desired width */
+    width: 75%;
     display: flex;
-    justify-content: space-around;
+    margin: auto;
   }
 
   td {
     padding: 0px;
     text-align: center;
+    width: calc(100% / 6);
   }
 
   td input[type="radio"] {
@@ -51,9 +52,9 @@
   /* Hidden text styles */
   .hidden-text {
     display: none;
-    position: absolute; /* Make it positionable within the statement cell */
-    top: 15px; /* Position at the top */
-    right: 75px; /* Offset from the right edge */
+    position: absolute;
+    top: 15px;
+    right: 75px;
     background-color: #f2f2f2;
     padding: 5px;
     border: 1px solid #ddd;
